@@ -1,0 +1,270 @@
+*{
+	margin: 0 auto;
+	padding: 0;
+}
+body,html{max-width: 100%;min-width: 60%;}
+body,html a{text-decoration: none;}
+header{
+	margin: 0 auto;
+	margin-top: 8px;
+	width: 100%;
+	height: 55px;
+	float: left;
+}
+header .top{
+	width: 1200px;
+	height: 55px;
+	float: left;
+	margin-left: 80px;
+	border-bottom: 1px solid #444444;
+}
+header .top img{
+	float: left;
+	margin-left: 90px;
+}
+.right{
+	width: 313px;
+	height: 14px;
+	float: left;
+	margin-left: 863px;
+	margin-top: -10px;
+}
+ .right .sp{
+	color: #808080;
+	float: left;	
+	font-size:11px;
+
+}
+.right .denglu,.right .xian,.right .zhuze,.right .dingdan{
+	color: #808080;
+	font-size: 10px;
+	float: left;}
+.right .denglu{margin-left: 20px;color: #B71C20;}
+.right .xian{
+	float: left;
+	width: 1px;
+	height: 12px;
+	margin-left: 5px;
+	background: #a0a0a0;
+	}
+.right .zhuze{margin-left: 5px;color: #B71C20;}
+.right .dingdan{margin-left: 40px;}
+nav{
+	margin: 0 auto;
+	width: 1200px;
+	height: 500px;
+	float: left;
+	margin-top: 10px;
+	margin-left: 80px;
+
+}
+#my{
+	width: 540px;
+	height: 28px;
+	float: left;
+	background: url(../img/newProm.gif);
+}
+#my .mm{
+	float: left;
+	width: 180px;
+	height: 22px;
+	text-align: center;
+	font-size: 12px;
+	color: #666666;
+	margin-top: 6px;
+	display: inline-block;
+}
+.cart{
+	margin-top: 9px;
+	width: 1200px;
+	height: 38px;
+	float: left;
+	
+}
+.cart_logo{
+	width: 40px;
+	height: 30px;
+	background: url(../img/newpromotion.gif.png)-460px 0 no-repeat;
+	float: left;
+}
+h2{
+	margin-top: 6px;
+	margin-left: 10px;
+	float: left;
+	width: 190px;
+	height: 28px;
+	}
+.tip{
+	width: 1200px;
+	height: 20px;
+	float: left;
+	font-size: 11px;
+}
+.tip span{
+	color: #B71C20;
+	font-size: 13px;
+}
+#foot{
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 100%;
+	height: 160px;
+	float: left;
+	border-top: 1px solid #3e3a39;
+}
+
+#foot .cop{
+	
+	font-size: 12px;
+	color: #793a39;
+	margin-left: 261px;
+	margin-top: 17px;
+}
+#foot .fk{
+	margin-top: 14px;
+	font-size: 12px;
+	color: #793a39;
+	margin-left: 591px;
+}
+#foot .lg{
+	margin-top: 100px;
+	width: 980px;
+	height: 45px;
+	float: left;
+	margin-top: 37px;
+	margin-left: 311px;
+}
+.lg .hh{
+	margin-top: 3px;
+	width: 113px;
+	height: 42px;
+	float: left;
+	background: url(../img/spritesbgtop.png) 0 -583px no-repeat;
+}	
+.lg .ch{
+	width: 156px;
+	height: 45px;
+	float: left;
+	margin-left: 20px;
+	background: url(../img/spritesbgtop.png) 0 -630px no-repeat;
+}
+.lg .wh{
+	margin-top: 3px;
+	width: 96px;
+	height: 42px;
+	float: left;
+	margin-left: 20px;
+	background: url(../img/spritesbgtop.png) 0 -675px no-repeat;
+}	
+.lg .jh{
+	margin-top: 3px;
+	width: 101px;
+	height: 42px;
+	float: left;
+	margin-left: 20px;
+	background: url(../img/spritesbgtop.png) -96px -675px no-repeat;
+}
+.lg .xh{
+	margin-top: 3px;
+	width: 42px;
+	height: 42px;
+	float: left;
+	margin-left: 20px;
+	background: url(../img/spritesbgtop.png) -200px -675px no-repeat;
+}	
+.lg .ph{
+	margin-top: 3px;
+	width: 96px;
+	height: 42px;
+	float: left;
+	margin-left: 20px;
+	background: url(../img/spritesbgtop.png) 0 -675px no-repeat;
+}
+/*购物车CSS：*/	
+#table{
+	
+	width: 1198px;
+	height: 300px;
+	margin-top: 15px;
+	float: left;
+}
+#cartTable{
+	background: #f8f8f8;
+	text-align: center;
+	width: 1198px;
+	height: 300px;
+	border: 1px solid #A0A0A0;
+}
+thead{background: #f0f0f0;}
+.count_input{
+ width: 30px;
+ height: 15px;
+ line-height: 15px;
+ border: 1px solid #aaa;
+ color: #343434;
+ text-align: center;
+ padding: 4px 0;
+ background-color: #fff;
+}
+
+span.add, span.reduce{
+ height: 23px;
+ width: 27px;
+ border: 1px solid #e5e5e5;
+ background: #f0f0f0;
+ line-height: 23px;
+ color: #444;
+
+}
+.closing{
+ color: white;
+ display: inline-block;
+ width: 110px;
+ height: 50px;
+ line-height: 50px;
+ background: #B71C22;
+ text-align: center;
+ font-family: 'Microsoft Yahei';
+ font-size: 20px;
+ -webkit-border-radius: 2px;
+ -moz-border-radius: 2px;
+ -ms-border-radius: 2px;
+ border-radius: 2px;
+ text-decoration: none;
+ cursor: pointer;
+}
+.fr{
+ float: right;
+}
+.selected_totle, .selectAll, .select_all, .delete_all{
+ margin-top: 15px;
+}
+.footer{
+ margin-top: 20px;
+ width: 1198px;
+ height: 50px;
+ background: #f8f8f8;
+}
+
+#selectTotle, #priceTotle,.subtotle {
+ color: #f40;
+ font-weight: 700;
+ font-size: 18px;
+ font-family: tohoma,arial;
+ padding: 5px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

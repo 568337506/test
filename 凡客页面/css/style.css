@@ -1,0 +1,196 @@
+*{
+	margin: 0 auto;
+	padding: 0;
+}
+body,html{max-width: 100%;min-width: 60%;}
+body,html a{text-decoration: none;}
+.inde{
+	margin: 0 auto;
+	width: 100%;
+	height: 73px;
+	float: left;
+	margin-top: 37px;
+	margin-left: 80px;
+}
+.lianjie{
+	width: 1200px;
+	height: 22px;
+	float: left;
+}
+.lianjie a{
+	font-size: 11px;
+	float: left;
+	color: #777777;
+}
+.lianjie .span{
+	margin-right: 15px;
+	margin-left: 10px;
+	margin-top: 0px;
+	width: 6px;
+	height: 12px;
+	float: left;
+}
+.lianjie a:hover{color: #B71C20;}
+.span_l{
+	margin-left: 10px;
+	margin-top: 0px;
+	width: 174px;
+	height: 12px;
+}
+.yanse{
+	width: 1200px;
+	height: 46px;
+	float: left;
+}
+h2{
+	margin-top: 23px;
+	font-size: 18px;
+	width: 415px;
+	height: 46px;
+	float: left;
+	color: #333333;
+}
+.yanse .chima{
+	width: 223px;
+	height: 19px;
+	font-size: 12px;
+	color: #B71C20;
+	margin-top: 25px;
+	margin-left: 15px;
+	float: left;
+}
+.ul{
+	width: 172px;
+	height: 18px;
+	float: left;
+	margin-top: 25px;
+	margin-left: 370px;
+}
+.ul span{
+	margin-top: 0px;
+	float: left;
+}
+.ul li{
+	list-style: none;
+	float: left;
+}
+.ul li a {
+	margin-left: 15px;
+	font-size: 11px;
+	text-align: center;
+	color: #8a8a8a;
+}
+#big{
+	margin: 0 auto;
+	width: 1200px;
+	height: 479px;
+	float: left;
+	margin-left: 80px;
+	border-top: 1px solid #9A9A9A;
+	border-bottom: 1px solid #9A9A9A;
+}
+.tu{
+	width: 72px;
+	height: 449px;
+	float: left;
+	margin-top: 20px;
+}
+.big{
+	width: 550px;
+	height: 480px;
+	float: left;
+}
+.smallPic {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #ccc;
+    margin-top: 200px;
+    margin-left: 200;
+    position: relative;
+        }
+.smallPic .zoom {
+    position: absolute;
+    top: 0px;
+    width: 35px;
+    height: 35px;
+    background: #FEDE4F;
+    opacity: 0.5;
+    border: 1px solid #aaa;
+    display: none;
+     }
+.bigPic {
+    width: 400px;
+    height: 400px;
+    background: url(../img/download.jpg) no-repeat;
+    position: absolute;
+    top:260px;
+    left:400px;
+    border: 1px solid #000;
+    display: none;
+    }
+.shangping{
+	width: 550px;
+	height: 480px;
+	float: left;
+
+}
+.shangping a{
+	font-size: 18px;
+}
+.shangping .btn1 {
+	width: 160px;
+	height: 50px;
+	background: hotpink;
+	border: 1px solid #B71C22;
+	margin-left: 10px;
+	margin-top: 80px;
+	float: left;
+}
+.shangping .btn1 a{
+	color: #793A39;
+}
+.shangping .btn2 {
+	width: 160px;
+	height: 50px;
+	background: #B71C20;
+	border: 1px solid #793A39;
+	margin-left: 30px;
+	margin-top: 80px;
+	float: left;	
+}
+.shangping .btn2 a{
+	color: white;
+}
+.shangping .shoujia{
+	margin-top: 20px;
+	font-size: 13px;
+	color: #B71C22;
+}
+.shangping .shoujia b{
+	font-size: 24px;
+}
+.shangping .hanguo{
+	font-size: 13px;
+	color: #B71C20;
+	margin-top: 10px;
+}
+.shangping ul li{
+	list-style: none;
+	font-size: 13px;
+	margin-top: 20px;
+	color: #808080;
+}
+.shangping ul li button{
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	background: white;
+	border: 1px solid #AAAAAA;
+}
+.shangping ul li button:hover{border: 2px solid #B71C20;}
+.shangping ul li select{
+	width: 50px;
+	height: 15px;
+	border: 1px solid #AAAAAA;
+	
+}

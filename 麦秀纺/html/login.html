@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Zxiu登录</title>
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="../css/register.css"/>
+	</head>
+	<style type="text/css">
+		html,body a{
+			text-decoration: none;
+			color: #fefefe;
+		}
+	</style>
+	<body>
+		<div class="box">
+	    	<div class="register">
+				<button class="img"><<</button>
+				<div class="text">登录</div>		
+			</div>
+			<form class="for">
+				<input type="text" id="userId" placeholder="账号" style="margin-top: 0.6rem;"/>
+				<input type="password" id="password" placeholder="密码" style="margin-top: 0.5rem;"/>
+				<p class="txt" style="float: left; margin-top: 0.4rem; width: 100%;height: 1rem;font-size: 0.4rem;line-height: 0.5rem;text-align: center;color: #000000;"></p>
+				<input type="button" id="regist" value="同意服务协议并登录"></input> 
+				<div class="kong" style="margin-top: 1.1rem;height:0.1rem; width: 100%;"></div>
+			</form>
+			<footer>
+				<a href="login.html"><img src="../imges/login02.gif" style="margin-left: 0.4rem;"/> <span>首页</span> </a>
+				<a href="login.html"><img src="../imges/login03.gif" style="margin-left: 0.4rem;"/ ><span>分类</span></a>
+				<a href="login.html"><img src="../imges/login04.png" style="margin-left: 0.5rem;"/><span>购物车</span></a>
+				<a href="login.html"><img src="../imges/login05.gif" style="margin-left: 0.5rem;"/><span>我的秀</span></a>
+				<a href="login.html"><img src="../imges/1_03.png" style="margin-left: 0.4rem;"/><span>更多</span></a>
+			</footer>
+			
+		</div>
+	</body>
+	<script src="../js/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+	   document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + 'px';  
+	   document.getElementsByClassName("box")[0].style.height= document.documentElement.clientHeight+ 'px';
+	</script>
+	<script>
+		 $("#regist").on("click",function() {
+ 			var user = getUsre();
+ 			$.post("http://datainfo.duapp.com/shopdata/userinfo.php",{
+				status:"login",
+				userID:user.userID,
+				password:user.password,	
+			},function(data) {
+				console.log(data) 
+				if (data == 0) {
+				$(".txt").html("用户名不存在")
+				setTimeout(function() {
+				window.location.href="register.html";
+			},1000)
+			}
+			else if(data == 2){
+				$(".txt").html("用户名密码不符")
+			}
+			else{
+				$(".txt").html("登陆成功")
+				setTimeout(function() {
+				window.location.href="index.html";
+			},1000)
+			}
+			
+			})
+ 		
+		})
+		function getUsre(){
+			var user = {
+				userID: $("#userId").val(),
+				password : $("#password").val()
+			}
+			return user;
+		}
+		
+		$(".img").on("click",function() {
+		 	history.back()
+		 })
+		
+		
+	</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3D骰子</title>
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+	    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+	    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+	</head>
+	<body>
+		<div class="box" style="background: url(../imges/login_bg.jpg);">
+			<div class="Log_i">Mxiu 麦秀坊</div>
+			<div class="centerDiv">
+				<div class="conten">
+					<div class="section"><img src="../imges/0304banner5.jpg" /> </div>
+					<div class="section"><img src="../imges/0306banner (1).jpg" /></div>
+					<div class="section"><img src="../imges/0306banner.jpg" /></div>
+					<div class="section"><img src="../imges/0307banner3.jpg"/></div>
+					<div class="section"><img src="../imges/03088banner2.jpg"/></div>
+					<div class="section"><img src="../imges/0306banner.jpg" /></div>
+				</div>
+			</div>	
+			<div class="index_bottom">
+				
+			</div>
+		</div>	
+	</body>
+	<script src="../js/jquery-3.1.1.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	   document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + 'px';  
+	   document.getElementsByClassName("box")[0].style.height= document.documentElement.clientHeight+ 'px';
+	</script>
+	<script>
+	     var $index = $(".index_bottom")
+		var  $btn = $("<button class='btn btn-primary btn-lg'>来！一起秀吧！>>></button>");
+		$index.append($btn);
+		$btn.on("click",function() {
+			window.location.href = "login.html"
+		})
+	</script>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Zxiu网</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../css/register.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/shoppingcar.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+	</head>
+	<body>
+		<div class="box">
+			<div class="register">
+				<button class="img"><<</button>
+				<div class="text">购物车</div>	
+				<button class="reg">去付款</button>		
+			</div>
+			
+			<ul class="search">
+				<li id="shings"></li>
+				<li id="money"></li>
+			</ul>	
+			<div class="centerDiv">
+				<div id="banner"> 
+					<div class="goods">
+						
+			  		</div>
+				</div>
+		       <div class="mainBox">
+		       	
+		       </div>	
+			</div>  
+			<footer>
+				<a href="index.html"><img src="../imges/login02.gif" style="margin-left: 0.4rem;"/> <span>首页</span> </a>
+				<a href="goods.html"><img src="../imges/login03.gif" style="margin-left: 0.4rem;"/ ><span>分类</span></a>
+				<a href="shoppingcar.html"><img src="../imges/login04.png" style="margin-left: 0.5rem;"/><span>购物车 <span id="carnumber" style=" font-size: 0.15rem; width: 0.3rem;height: 0.3rem;background: #e74173;border-radius: 50%;margin-top: -1rem;margin-left: 0.6rem;"></span></span></a>
+				<a href="#"><img src="../imges/login05.gif" style="margin-left: 0.5rem;"/><span>我的秀</span></a>
+				<a href="#"><img src="../imges/1_03.png" style="margin-left: 0.4rem;"/><span>更多</span></a>
+			</footer>
+		</div>
+	</body>
+	<script src="../js/jquery-3.1.1.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/base.js"></script>  
+	<script>
+	  document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + 'px';
+      document.getElementsByClassName("box")[0].style.height= document.documentElement.clientHeight+'px';
+	</script>
+	<script>
+		ajax_getCar({userID:"wyz",callback:function(data) {
+			var $mainBox = $(".mainBox");
+			   var Price = 0 ;
+               var tnum = 0;
+			$.each(data, function(i) {
+				var num=parseInt(data[i].number);
+				tnum=tnum+num;			
+				var dprice = parseInt(data[i].price);
+				Price = Price+dprice*num; 
+				var $indatas= data[i].goodsListImg;
+				var $a = $("<div class='mainBox'><div class='goodsListDiv'><img  class='goodsListImg' src='"+$indatas+"'/><div class='textt'><div class='text_1'>"+data[i].goodsName+"</div><div  class='shop'><div class='price'>￥"+data[i].price+"</div><div class='num'>数量:<div class='rig'><button class='jian'>-</button> <span class='shu'>1</span> <button class='jia'>+</button></div>  </div> <div class='shoping'><button class='btn_shoping'></button><div class='move'></div> </div></div><div></div></div>");
+				$mainBox.append($a);
+				$("#money").html("应付总价（不含运费）¥"+Price);
+	    	    $("#shings").html("商品数量："+tnum);
+	    	    //商品删除：
+	    	    $(".btn_shoping")[i].onclick=function() {  
+		    	        $a.remove()
+		    	        tnum=tnum-num;
+		    	        Price=Price-dprice*num;
+	    	            $("#money").html("应付总价（不含运费）¥"+Price);
+	    	    	    $("#shings").html("商品数量："+tnum);
+						upDataCar({
+						userID:"wyz",
+						goodsID:data[i].goodsID,
+						number:0,
+						callback:function(data) {
+							if (Storage_getCare().length>0) {
+								$("#carnumber").html(Storage_getCare().length); 
+							}
+						}
+					})	 
+	    	     }   
+	    	        //加：
+	    	        $(".jia")[i].onclick= function  () {
+                     num++;
+                     tnum++;
+                     Price=Price+dprice;
+                     $(this).parent().children().eq(1).html(num);
+	    	    	 $("#money").html("应付总价（不含运费）¥"+Price);
+	    	    	 $("#shings").html("商品数量："+tnum);
+	    	         upDataCar(
+	    	         	{userID:"wyz",
+	    	         	goodsID:data[i].goodsID,
+	    	         	number:1,
+	    	         	callback:function(data) {	
+					}})  
+	    	    };
+	    	     //减：
+	    	     $(".jian")[i].onclick=function() {
+	    	     	if(num<1){
+	    	     		num=0;
+	    	     	}
+	    	    	if (num>0) {
+	    	    	   num--;
+                       tnum--;
+                       Price=Price-dprice;
+	    	    	}
+	    	    	 
+	    	    	 if (Price<0) {
+	    	    	 	Price=0
+	    	    	 }
+	    	    	 $(this).parent().children().eq(1).html(num);
+	    	    	 $("#money").html("应付总价（不含运费）¥"+Price);
+	    	    	 $("#shings").html("商品数量："+tnum);
+	    	         upDataCar(
+	    	         	{userID:"wyz",
+	    	         	goodsID:data[i].goodsID,
+	    	         	number:1,
+	    	         	callback:function(data) {
+		
+					}})
+	    	    }
+	    	    $("#carnumber").html(Storage_getCare().length); 
+			});
+		}})
+
+  //获取商品分类		
+   $.get("http://datainfo.duapp.com/shopdata/getclass.php",function(data) {
+		var $banner = $(".goods")
+		if (data) {
+			var data = JSON.parse(data);
+			$.each(data, function(i) {
+				var $a = $('<a href="list.html?classID='+encodeURI(data[i].classID)+'&className='+encodeURI(data[i].className)+'">'+data[i].className+'</a>');
+				$banner.append($a);
+				
+			});
+		}
+	})  
+  
+//按钮事件
+	$(".inU").on("click",function () {
+	    		$(".goods").slideUp() 
+		    	$(".inf").css("display","block")
+		    	$(".inU").css("display","none")
+		    	$("#banner").css("display","none")
+    	})
+   
+    $(".more").mousedown( function() {
+    	$("#banner").css("display","block")
+    	$(".goods").slideDown() 
+    	$(".inU").css("display","block")
+    	$(".inf").css("display","none")
+    })  
+	</script>
+</html>

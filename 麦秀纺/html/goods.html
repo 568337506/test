@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Zxiu网</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="../css/goods.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+	</head>
+	<body>
+		<div class="box">
+			<div class="register">
+				<button class="img"><<</button>
+				<div class="text">类别</div>			
+			</div>
+			<div class="search">
+				<form class="form">
+					<button class="btn"><img class="btnimg" src="../imges/searchP.jpg" /></button>
+					<input type="search" id="search" placeholder="请输入搜索内容" />
+				</form>
+			</div>	
+			<div class="centerDiv">
+				<div class="swiper-container">
+					<div class="swiper-wrapper"></div>
+			<!-- 如果需要分页器 小点点 -->
+				   <div class="swiper-pagination"></div>
+		        </div>
+				<div id="banner">
+					<div class="goods">
+						
+					</div>
+				</div>
+			</div>
+			<footer>
+				<a href="index.html"><img src="../imges/login02.gif" style="margin-left: 0.4rem;"/> <span>首页</span> </a>
+				<a href="goods.html"><img src="../imges/login03.gif" style="margin-left: 0.4rem;"/ ><span>分类</span></a>
+				<a href="shoppingcar.html"><img src="../imges/login04.png" style="margin-left: 0.5rem;"/><span>购物车</span></a>
+				<a href="#"><img src="../imges/login05.gif" style="margin-left: 0.5rem;"/><span>我的秀</span></a>
+				<a href="#"><img src="../imges/1_03.png" style="margin-left: 0.4rem;"/><span>更多</span></a>
+			</footer>
+			
+		</div>
+		
+	</body>
+	<script src="../js/jquery-3.1.1.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/base.js"></script>
+	<script>
+	  document.documentElement.style.fontSize = document.documentElement.clientWidth / 6.4 + 'px';
+      document.getElementsByClassName("box")[0].style.height= document.documentElement.clientHeight+'px';
+	</script>
+<script>
+ //搜索框：
+  	$(".btn").on("click",function(){
+			window.open("search.html?selectText="+encodeURI(encodeURI($("#search").val())));
+		});
+
+
+  //轮播图
+$.ajax({
+		url:"http://datainfo.duapp.com/shopdata/getBanner.php",
+		dataType:"jsonp",
+		success:function(data){
+			var $swrapper = $(".swiper-wrapper");
+			$.each(data, function(i) {
+			var $indata= JSON.parse(data[i].goodsBenUrl);
+		    var $imgBox=$("<div class='swiper-slide'><img  class='banner' src='"+$indata.slice(0,1)+"'></div>");
+		    $swrapper.append($imgBox);
+		   	var mySwiper = new Swiper('.swiper-container', {
+			loop: true,
+			// 如果需要分页器,小点点
+			pagination: '.swiper-pagination',
+			autoplay:3000,
+			
+		})
+			});
+		
+		}
+});
+   //获取商品分类		
+   $.get("http://datainfo.duapp.com/shopdata/getclass.php",function(data) {
+		var $banner = $(".goods")
+		if (data) {
+			var data = JSON.parse(data);
+			$.each(data, function(i) {
+				var $a = $('<a href="list.html?classID='+encodeURI(data[i].classID)+'&className='+encodeURI(data[i].className)+'">'+data[i].className+'</a>');
+				$banner.append($a);
+			});
+		}
+	})
+</script>
+</html>
